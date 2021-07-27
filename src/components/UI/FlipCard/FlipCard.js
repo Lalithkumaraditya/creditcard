@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import classes from './FlipCard.module.css';
-import one from '../../../assets/images/16.jpeg'
 import Chip from '../../../assets/images/chip.png'
 import Visa from '../../../assets/images/visa.png'
 import MasterCard from '../../../assets/images/mastercard.png'
