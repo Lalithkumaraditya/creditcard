@@ -70,7 +70,7 @@ const Layout = () => {
         value.length ===3 && setCvvValue('***') 
         
     }
-    const [cvvFocus, setCvvFocus] = useState(true);
+    const [cvvFocus, setCvvFocus] = useState(false);
 
 
     return (
