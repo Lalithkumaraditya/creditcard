@@ -1,0 +1,55 @@
+.layoutContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px;
+}
+.formContainer{
+    width: 550px;
+    height:500px;
+    margin-top: -80px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 10px 0 rgba(0,0,0,0.2);
+}
+.spacing{
+    margin-top:120px;
+}
+.row{
+    margin-top: 20px;
+    margin-left: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+}
+.btnspacing{
+    margin-top:50px;
+}
+.submitBtn{
+    width:400px;
+    padding:13px;
+    background-color: #025bbb;
+    color:white;
+    box-shadow: #027BFE;
+    border-color: #027BFE;
+    border: #027BFE;
+    border-radius: 5px;;
+}
+.submitBtn:hover{
+    width:400px;
+    padding:13px;
+    background-color: #006ce0;
+    color:white;
+    box-shadow: #027BFE;
+    border-color: #027BFE;
+    border: #027BFE;
+    size: 100px;
+    border-radius: 5px;;
+}
+.cvvInput{
+    position: relative;
+    top: -13px;
+}
+

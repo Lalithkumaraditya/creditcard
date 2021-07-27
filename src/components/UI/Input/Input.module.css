@@ -1,0 +1,27 @@
+.fname{
+    padding:10px;
+    width:70%
+    }
+    .label{
+        text-align: left;
+        position: relative;
+        /* flex: auto; */
+        margin-left: -336px;
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: rgb(129, 149, 167);
+        font-size: 12px;
+    }
+    .cvv{
+        padding:15px;
+        width:40%;
+       
+    }
+    .cvvLabel{
+        text-align: left;
+        position: relative;
+        margin-left: -85px;
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: rgb(129, 149, 167);
+        font-size: 12px;
+        
+    }

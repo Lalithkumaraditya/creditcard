@@ -1,0 +1,152 @@
+.flipCard {
+    background-color: transparent;
+    height: 300px;
+    perspective: 1000px;
+    width: 450px;
+    border-radius: 20px;
+    background-image:  rgba(0,0,0,0.4); 
+  
+  }
+  
+  .flipCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
+  }
+  
+  
+  
+  .flipCardFront, .flipCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flipCardFront {
+    background-color: #bbb;
+    color: black;
+    border-radius: 20px;
+    
+  }
+  
+  .flipCardBack {
+    background-color: #2980b9;
+    color: white;
+    border-radius: 20px;
+    transform: rotateY(180deg);
+  }
+
+
+  /* First Row  */
+
+  .firstRow {
+    display: flex;
+    flex-direction: row;
+    /* position: absolute; */
+    bottom: 180px;
+    justify-content: space-between;
+  }
+  .chip {
+    width: 50px;
+    height: 50px;
+    justify-self: flex-start;
+    margin-left: 20px;
+    padding:20px
+  }
+  .company {
+    justify-self: flex-end;
+    width: 60px;
+    height: 50px;
+    /* margin-left: 300px; */
+    padding:20px
+  }
+  /* Second Row */
+
+  .secondRow {
+    display: flex;
+    left: 100px;
+    justify-content: center;
+    color: white;
+    margin: 40px 0px;
+    height: 40px;
+  }
+
+  /* Third Row */
+  .thirdRow {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10px;
+    justify-content: space-around;
+    color: white;
+    flex-basis: auto;
+    
+  }
+  .holder {
+    margin-top: 5px;
+    margin-left: 0px;
+    font-size: 10px;
+
+  }
+  .expires {
+    margin-left: 150px;
+    font-size: 12px;
+  }
+  .name {
+    margin-left: 14px;
+    font-size: 18px;
+    font-weight: 500;
+    width: 150px;
+    text-overflow: ellipsis;
+  }
+  .date {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+/* Card Flip Styles  */
+.blackBand{
+    margin-top: 40px;
+    width: 91%;
+    background-color: rgb(26, 26, 26);
+    height:20px;
+    padding:20px
+}
+
+.whiteBand{
+    margin-top: 10px !important;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    height:12px;
+    padding:20px;
+    margin: auto;
+    border-radius: 10px;
+}
+.flipCardRowThree{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.cvvNumber{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content:flex-end;
+    color: black;
+    top:-25px;
+    right:10px;
+    font-size:22px;
+    
+}
+.cvv{
+  display: flex;
+ position: relative;
+ left:370px;
+ top: 9px;
+}
