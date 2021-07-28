@@ -1,4 +1,4 @@
-.fname{
+.Input{
     padding:10px;
     width:70%
     }
@@ -11,7 +11,7 @@
         color: rgb(129, 149, 167);
         font-size: 12px;
     }
-    .cvv{
+    .Cvv{
         padding:15px;
         width:40%;
        
@@ -25,3 +25,12 @@
         font-size: 12px;
         
     }
+    .invalid input {
+        border: 1px solid #b40e0e;
+        background-color: #fddddd;
+      }
+      
+      .invalid input:focus {
+        border-color: #ff8800;
+        background-color: #fbe8d2;
+      }

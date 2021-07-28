@@ -14,17 +14,25 @@ const Layout = () => {
     const [month, setMonth] = useState('01');
     const [year, setYear] = useState('2022');
     const [cardType, setCardType] = useState('');
-    const [cvvValue,setCvvValue] = useState('');
+    const [cvvValue, setCvvValue] = useState('');
+    const [cvvFocus, setCvvFocus] = useState(false);
+    const [numisValid,setNumIsValid]=useState(false);
+    const [nameisValid,setNameIsValid]=useState(false);
+    const [cvvValid,setCvvValid]=useState(false);
+    const [overallFrmIsValid,setoverallFormIsValid]=useState(false);
     const onCardChangeHandler = (event) => {
+
         let value = event.target.value + "";
+        let letters = /[0-9]+$/;
+        let inputValue=event.target.value;
+       if(inputValue.match(letters)){ console.log(numisValid);setNumIsValid(false) ;}
+       else{setNumIsValid(true)}
         setCard(value);
         if (event.target.value.replace(/ /g, '').length === 9) {
-            console.log('1')
             let carType = getCardType(event.target.value.replace(/ /g, ''));
-            console.log('2')
             setCardType(carType);
         }
-        if(event.target.value.replace(/ /g, '').length === 0){
+        if (event.target.value.replace(/ /g, '').length === 0) {
             setCardType('');
         }
 
@@ -32,6 +40,10 @@ const Layout = () => {
     }
 
     const onNameChangeHandler = (event) => {
+        let inputValue=event.target.value;
+        let letters =   /^[a-zA-Z ]*$/;
+        if(inputValue.match(letters)){console.log('inside if'); console.log(nameisValid);setNameIsValid(false) ;}
+        else{console.log('inside else');  setNameIsValid(true)}
         let name = event.target.value;
         setName(name);
     }
@@ -39,11 +51,11 @@ const Layout = () => {
         setCvvFocus(true);
     }
     const onBlurHandler = (event) => {
-        if(cvvValue===''){
-           
+        if (cvvValue === '') {
+
         }
-        else{
-         
+        else {
+
         }
         setCvvFocus(false);
     }
@@ -58,44 +70,67 @@ const Layout = () => {
     const yearChangeHandler = (event) => {
         setYear(event.target.value)
     }
-    const onCvvChangeHandler=(event)=>{
-        let value=event.target.value;
-     
-        if(value.length >=1){
-         
+
+    const onCvvChangeHandler = (event) => {
+        let letters = /[0-9]+$/;
+        let inputValue=event.target.value;
+       if(inputValue.match(letters)){ console.log(numisValid);setCvvValid(false) ;}
+       else{setCvvValid(true)}
+        let value = event.target.value;
+
+        if (value.length >= 1) {
+
         }
-        value.length ===0 && setCvvValue('');
-        value.length ===1 && setCvvValue('*') 
-        value.length ===2 && setCvvValue('**') 
-        value.length ===3 && setCvvValue('***') 
-        
+        value.length === 0 && setCvvValue('');
+        value.length === 1 && setCvvValue('*')
+        value.length === 2 && setCvvValue('**')
+        value.length === 3 && setCvvValue('***')
+
     }
-    const [cvvFocus, setCvvFocus] = useState(false);
+    const SubmitHandler=(event)=>{
+        event.preventDefault();
+        console.log("Card: "+card+"name: "+name+"cvv "+cvvValue)
+       if(card === '#### #### #### ####' || name==='Full Name' || cvvValue===''){
+           console.log('inside');
+        setoverallFormIsValid(true);
+        
+       }
+       else{
+       console.log('outside');
+       setoverallFormIsValid(false);
+       }
+    }
+   
 
 
     return (
         < div className={classes.layoutContainer} >
             {/* <Card number={card} name={name} /> */}
             <FlipCard number={card} name={name} cvvFocus={cvvFocus} month={month} year={year} cardType={cardType} cvv={cvvValue} />
-            <div className={classes.formContainer}>
-                <div className={classes.spacing}>
-                    <Input type="card" label="Card Number" onChange={onCardChangeHandler} onBlur={onBlurNumberHandler} />
-                    
-                    <br></br>
-                    <Input type="name" label="Card Holders" onChange={onNameChangeHandler} />
-                </div>
-                <div className={classes.row}>
-
-                    <Select options={months} onChange={monthChangeHandler} />
-                    <Select options={years} onChange={yearChangeHandler} />
-                    <div className={classes.cvvInput}>
-                    <Input type="cvv" label="CVV" onFocus={onCvvFocusHandler}  onBlur={onBlurHandler} onChange={onCvvChangeHandler} />
-                    {/* {!cvvValid &&<span>Invalid Cvv</span>} */}
+                <div className={classes.formContainer}>
+            <form onSubmit={SubmitHandler}>
+                    <div className={classes.spacing}>
+                        <Input type="card" label="Card Number" onChange={onCardChangeHandler} onBlur={onBlurNumberHandler}  />
+                        {numisValid && <p style={{marginLeft:'264px',color:'red',marginTop:'3px'}} >Enter Valid Number</p>}
+                        <br></br>
+                        <Input type="name" label="Card Holders" onChange={onNameChangeHandler} />
+                        {nameisValid && <p style={{marginLeft:'264px',color:'red',marginTop:'3px'}} >Enter Valid Name</p>}
                     </div>
+                    <div className={classes.row}>
+
+                        <Select options={months} onChange={monthChangeHandler} />
+                        <Select options={years} onChange={yearChangeHandler} />
+                        <div className={classes.cvvInput}>
+                            <Input type="cvv" label="CVV" onFocus={onCvvFocusHandler} onBlur={onBlurHandler} onChange={onCvvChangeHandler}/>
+                            {cvvValid && <p style={{color:'red',marginTop:'3px',fontSize:'10px'}} >Enter Valid Number</p>}
+                        </div>
+                        
+                    </div>
+                   {overallFrmIsValid && <p style={{margin:'auto',color:'red'}}>All fields are required</p>}
+                    <div className={classes.btnspacing}>
+                        <button className={classes.submitBtn} onSubmit={SubmitHandler}>Submit</button></div>
+            </form>
                 </div>
-                <div className={classes.btnspacing}>
-                    <button className={classes.submitBtn}>Submit</button></div>
-            </div>
         </div>
     );
 };
