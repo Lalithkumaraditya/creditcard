@@ -90,7 +90,7 @@ const Layout = () => {
     const SubmitHandler=(event)=>{
         event.preventDefault();
         console.log("Card: "+card+"name: "+name+"cvv "+cvvValue)
-       if(card === '#### #### #### ####' || name==='Full Name' || cvvValue===''){
+       if(card === '#### #### #### ####' || name==='Full Name'||  name==='' || cvvValue===''){
            console.log('inside');
         setoverallFormIsValid(true);
         
@@ -128,7 +128,7 @@ const Layout = () => {
                     </div>
                    {overallFrmIsValid && <p style={{margin:'auto',color:'red'}}>All fields are required</p>}
                     <div className={classes.btnspacing}>
-                        <button className={classes.submitBtn} onSubmit={SubmitHandler}>Submit</button></div>
+                        <button className={classes.submitBtn} onSubmit={SubmitHandler} >Submit</button></div>
             </form>
                 </div>
         </div>
